@@ -161,3 +161,51 @@ Epoch 10/10
 test_acc  :  0.981
 test_loss :  0.07306255485720212
 ```
+
+## Tips: GPU vs CPU
+バックエンドのtensorflowをCPU版にして実行してみた.  
+実行結果  
+```
+Epoch 1/10
+2018-07-29 18:16:46.208938: I T:\src\github\tensorflow\tensorflow\core\platform\cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX260000/60000 [==============================] - 3s 49us/step - loss: 0.2537 - acc: 0.9262
+Epoch 2/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.1030 - acc: 0.9698
+Epoch 3/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0687 - acc: 0.9794
+Epoch 4/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0504 - acc: 0.9845
+Epoch 5/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0375 - acc: 0.9885
+Epoch 6/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0285 - acc: 0.9916
+Epoch 7/10
+60000/60000 [==============================] - 3s 45us/step - loss: 0.0223 - acc: 0.9933
+Epoch 8/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0169 - acc: 0.9948
+Epoch 9/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0134 - acc: 0.9961
+Epoch 10/10
+60000/60000 [==============================] - 3s 46us/step - loss: 0.0103 - acc: 0.9971
+10000/10000 [==============================] - 0s 38us/step
+test_acc  :  0.9807
+test_loss :  0.07209501693857273
+```
+GPU版のほうが3倍程度高速.  
+※ CPU版も最適化すればもう少し高速になるかもしれないので上記はあくまで参考値.  
+- CPU : Intel(R) Core(TM)i7-6700 CPU @ 3.40GHz
+- GPU : GeForce GTX 1060 6GB  
+以後のプロジェクトはGPU版を用いることにする.  
+
+### CPU版とGPU版の切り替え
+Anaconda Promptでtensorflowのインストール/アンインストールをすることで切り替えができた.  
+もっとスマートな方法があるかもしれない...  
+#### CPU ⇒ GPU  
+```
+>pip uninstall -y tensorflow
+>pip install  tensorflow-gpu
+```
+#### GPU ⇒ CPU
+```
+>pip uninstall -y tensorflow-gpu
+>pip install  tensorflow
+```
