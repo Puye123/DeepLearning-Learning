@@ -42,6 +42,9 @@ ax[0].imshow(train_image, cmap=plt.cm.binary)
 ax[1].imshow(test_image, cmap=plt.cm.binary)
 plt.show()
 ```
-実行結果
-![データセット画像の表示](https://user-images.githubusercontent.com/32557553/43364053-951edb28-934d-11e8-926f-06c3d435e592.png)
-
+実行結果  
+![データセット画像の表示](https://user-images.githubusercontent.com/32557553/43364053-951edb28-934d-11e8-926f-06c3d435e592.png)  
+train_labelsを確認したところ, `train_labels: [5 0 4 ... 5 6 8]` であった.   
+即ち, train_imagesの0番目の数字は'5'である.  
+同様に, test_imagesの0番目の数字は'7'である.  
+実行結果を見ると, '5'と'7'がそれぞれ表示されていることがわかる.
