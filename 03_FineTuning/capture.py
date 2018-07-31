@@ -50,7 +50,7 @@ def main():
         count += 1
         if(count >= args.num):
             break
-        k = cv2.waitKey(100)
+        k = cv2.waitKey(30)
         if k == 27:
             break
     cap.release()
