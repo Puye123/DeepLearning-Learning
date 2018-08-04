@@ -13,7 +13,8 @@ import PIL
 
 data_dir = '../DeepLearning-Learning_DATAS/03_FineTuning/'
 h5_name = 'janken_small_cnn_01.h5'
-image_name = 'validation/gu/20180801_211326790991.jpg'
+#image_name = 'validation/gu/20180801_211326790991.jpg'
+image_name = 'validation/tyoki/20180801_211605459033.jpg'
 
 # モデルのロード
 model = models.load_model(data_dir + h5_name)
@@ -27,7 +28,7 @@ x = x.astype('float32')/255.0
 x = np.expand_dims(x, axis=0)
 
 # 答え合わせ
-hand_name = ['グー', 'チョキ', 'パー', 'その他', '手が写っていない']
+hand_name = ['グー', '手が写っていない', 'その他', 'パー', 'チョキ' ]
 result = model.predict(x)
 your_hand_index = np.argmax(result[0])
 print('あなたの出した手は... 「' + hand_name[your_hand_index] + '!」')
