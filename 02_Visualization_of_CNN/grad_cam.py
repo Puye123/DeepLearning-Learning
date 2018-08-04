@@ -9,6 +9,7 @@ import cv2
 
 
 def preprocess_image(img):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = PIL.Image.fromarray(img)
     img = img.resize((224, 224))
     x = image.img_to_array(img)
